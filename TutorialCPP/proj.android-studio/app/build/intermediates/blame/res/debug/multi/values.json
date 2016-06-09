@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "/Users/mobile6/Documents/Projects/cocos2d/Projects/Cocos2D_CPP/TutorialCPP/proj.android-studio/app/build/intermediates/res/merged/debug/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 48,
+                    "endOffset": 99
+                },
+                "from": {
+                    "file": "/Users/mobile6/Documents/Projects/cocos2d/Projects/Cocos2D_CPP/TutorialCPP/proj.android-studio/app/res/values/strings.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 16,
+                        "endColumn": 48,
+                        "endOffset": 60
+                    }
+                }
+            }
+        ]
+    }
+]
