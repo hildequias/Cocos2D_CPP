@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/mobile6/Documents/Projects/cocos2d/Projects/Cocos2D_CPP/TutorialCPP/proj.android-studio/app/src/main/jniLibs"/><source path="/Users/mobile6/Documents/Projects/cocos2d/Projects/Cocos2D_CPP/TutorialCPP/proj.android-studio/app/libs"/></dataSet><dataSet config="debug"><source path="/Users/mobile6/Documents/Projects/cocos2d/Projects/Cocos2D_CPP/TutorialCPP/proj.android-studio/app/src/debug/jniLibs"/></dataSet></merger>

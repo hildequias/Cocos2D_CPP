@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="armeabi-v7a,armeabi"
+    api-level="23"
+    density="xxhdpi"
+    format="7"
+    timestamp="4957796933272"
+    token="-8161292325466444641" >
+
+    <task
+        name="javac"
+        duration="0" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="0" />
+    <task
+        name="verifier"
+        duration="0" />
+
+    <artifact
+        location="/Users/mobile6/Documents/Projects/cocos2d/Projects/Cocos2D_CPP/TutorialCPP/proj.android-studio/app/build/intermediates/res/resources-debug.ap_"
+        type="RESOURCES" />
+
+    <build timestamp="4574347946912" >
+        <artifact
+            location="/Users/mobile6/Documents/Projects/cocos2d/Projects/Cocos2D_CPP/TutorialCPP/proj.android-studio/app/build/outputs/apk/TutorialCPP-debug.apk"
+            type="MAIN" />
+    </build>
+    <build timestamp="4957796933272" >
+        <artifact
+            location="/Users/mobile6/Documents/Projects/cocos2d/Projects/Cocos2D_CPP/TutorialCPP/proj.android-studio/app/build/intermediates/res/resources-debug.ap_"
+            type="RESOURCES" />
+    </build>
+
+</instant-run>
