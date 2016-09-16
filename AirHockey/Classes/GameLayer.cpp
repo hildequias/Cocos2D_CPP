@@ -135,7 +135,7 @@ void GameLayer::onTouchesMoved(const std::vector<Touch*> &touches, Event* event)
                     if (nextPosition.x > _screenSize.width - player->radius())
                         nextPosition.x = _screenSize.width - player->radius();
                     if (nextPosition.y < player->radius())
-                        nextPosition.y  = player->radius();
+                        nextPosition.y = player->radius();
                     if (nextPosition.y > _screenSize.height - player->radius())
                         nextPosition.y = _screenSize.height - player->radius();
                     
