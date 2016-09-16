@@ -70,6 +70,18 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
+		F7966F211D8C39B000FE1045 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F7966F151D8C39B000FE1045 /* background.mp3 */; };
+		F7966F221D8C39B000FE1045 /* bombFail.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7966F161D8C39B000FE1045 /* bombFail.wav */; };
+		F7966F231D8C39B000FE1045 /* bombRelease.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7966F171D8C39B000FE1045 /* bombRelease.wav */; };
+		F7966F241D8C39B000FE1045 /* boom.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7966F181D8C39B000FE1045 /* boom.wav */; };
+		F7966F251D8C39B000FE1045 /* fire_truck.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7966F191D8C39B000FE1045 /* fire_truck.wav */; };
+		F7966F261D8C39B000FE1045 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = F7966F1A1D8C39B000FE1045 /* fonts */; };
+		F7966F271D8C39B000FE1045 /* health.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7966F1B1D8C39B000FE1045 /* health.wav */; };
+		F7966F281D8C39B000FE1045 /* ipad in Resources */ = {isa = PBXBuildFile; fileRef = F7966F1C1D8C39B000FE1045 /* ipad */; };
+		F7966F291D8C39B000FE1045 /* ipadhd in Resources */ = {isa = PBXBuildFile; fileRef = F7966F1D1D8C39B000FE1045 /* ipadhd */; };
+		F7966F2A1D8C39B000FE1045 /* iphone in Resources */ = {isa = PBXBuildFile; fileRef = F7966F1E1D8C39B000FE1045 /* iphone */; };
+		F7966F2B1D8C39B000FE1045 /* pew.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7966F1F1D8C39B000FE1045 /* pew.wav */; };
+		F7966F2C1D8C39B000FE1045 /* res in Resources */ = {isa = PBXBuildFile; fileRef = F7966F201D8C39B000FE1045 /* res */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +112,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A07A4C241783777C0073F6A7;
 			remoteInfo = "cocos2dx iOS";
+		};
+		F7966F2E1D8C39B000FE1045 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 507B40FD1C31BDD30067B53E;
+			remoteInfo = "libcocos2d tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -165,6 +184,18 @@
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		F7966F151D8C39B000FE1045 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
+		F7966F161D8C39B000FE1045 /* bombFail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bombFail.wav; sourceTree = "<group>"; };
+		F7966F171D8C39B000FE1045 /* bombRelease.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bombRelease.wav; sourceTree = "<group>"; };
+		F7966F181D8C39B000FE1045 /* boom.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boom.wav; sourceTree = "<group>"; };
+		F7966F191D8C39B000FE1045 /* fire_truck.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fire_truck.wav; sourceTree = "<group>"; };
+		F7966F1A1D8C39B000FE1045 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		F7966F1B1D8C39B000FE1045 /* health.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = health.wav; sourceTree = "<group>"; };
+		F7966F1C1D8C39B000FE1045 /* ipad */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ipad; sourceTree = "<group>"; };
+		F7966F1D1D8C39B000FE1045 /* ipadhd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ipadhd; sourceTree = "<group>"; };
+		F7966F1E1D8C39B000FE1045 /* iphone */ = {isa = PBXFileReference; lastKnownFileType = folder; path = iphone; sourceTree = "<group>"; };
+		F7966F1F1D8C39B000FE1045 /* pew.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pew.wav; sourceTree = "<group>"; };
+		F7966F201D8C39B000FE1045 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +271,7 @@
 			children = (
 				1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */,
 				1AC6FB07180E9839004C840B /* libcocos2d iOS.a */,
+				F7966F2F1D8C39B000FE1045 /* libcocos2d tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -288,6 +320,18 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7966F151D8C39B000FE1045 /* background.mp3 */,
+				F7966F161D8C39B000FE1045 /* bombFail.wav */,
+				F7966F171D8C39B000FE1045 /* bombRelease.wav */,
+				F7966F181D8C39B000FE1045 /* boom.wav */,
+				F7966F191D8C39B000FE1045 /* fire_truck.wav */,
+				F7966F1A1D8C39B000FE1045 /* fonts */,
+				F7966F1B1D8C39B000FE1045 /* health.wav */,
+				F7966F1C1D8C39B000FE1045 /* ipad */,
+				F7966F1D1D8C39B000FE1045 /* ipadhd */,
+				F7966F1E1D8C39B000FE1045 /* iphone */,
+				F7966F1F1D8C39B000FE1045 /* pew.wav */,
+				F7966F201D8C39B000FE1045 /* res */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
 				46880B7619C43A67006E1F66 /* CloseNormal.png */,
@@ -445,6 +489,13 @@
 			remoteRef = 1AC6FB06180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		F7966F2F1D8C39B000FE1045 /* libcocos2d tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d tvOS.a";
+			remoteRef = F7966F2E1D8C39B000FE1045 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -456,24 +507,36 @@
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
+				F7966F211D8C39B000FE1045 /* background.mp3 in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
+				F7966F271D8C39B000FE1045 /* health.wav in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
+				F7966F2A1D8C39B000FE1045 /* iphone in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
+				F7966F261D8C39B000FE1045 /* fonts in Resources */,
+				F7966F2B1D8C39B000FE1045 /* pew.wav in Resources */,
+				F7966F221D8C39B000FE1045 /* bombFail.wav in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				F7966F2C1D8C39B000FE1045 /* res in Resources */,
+				F7966F291D8C39B000FE1045 /* ipadhd in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
+				F7966F231D8C39B000FE1045 /* bombRelease.wav in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
+				F7966F251D8C39B000FE1045 /* fire_truck.wav in Resources */,
+				F7966F241D8C39B000FE1045 /* boom.wav in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
+				F7966F281D8C39B000FE1045 /* ipad in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
