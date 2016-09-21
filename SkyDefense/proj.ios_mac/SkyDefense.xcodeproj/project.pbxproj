@@ -82,6 +82,7 @@
 		F7966F2A1D8C39B000FE1045 /* iphone in Resources */ = {isa = PBXBuildFile; fileRef = F7966F1E1D8C39B000FE1045 /* iphone */; };
 		F7966F2B1D8C39B000FE1045 /* pew.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7966F1F1D8C39B000FE1045 /* pew.wav */; };
 		F7966F2C1D8C39B000FE1045 /* res in Resources */ = {isa = PBXBuildFile; fileRef = F7966F201D8C39B000FE1045 /* res */; };
+		F7DEAD121D9317FB00A17AF3 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7DEAD101D9317FB00A17AF3 /* GameLayer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +197,8 @@
 		F7966F1E1D8C39B000FE1045 /* iphone */ = {isa = PBXFileReference; lastKnownFileType = folder; path = iphone; sourceTree = "<group>"; };
 		F7966F1F1D8C39B000FE1045 /* pew.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pew.wav; sourceTree = "<group>"; };
 		F7966F201D8C39B000FE1045 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
+		F7DEAD101D9317FB00A17AF3 /* GameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayer.cpp; sourceTree = "<group>"; };
+		F7DEAD111D9317FB00A17AF3 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,6 +352,8 @@
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				F7DEAD101D9317FB00A17AF3 /* GameLayer.cpp */,
+				F7DEAD111D9317FB00A17AF3 /* GameLayer.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -566,6 +571,7 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				F7DEAD121D9317FB00A17AF3 /* GameLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

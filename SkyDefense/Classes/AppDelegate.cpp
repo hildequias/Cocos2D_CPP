@@ -1,7 +1,10 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "GameLayer.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
+
+using namespace CocosDenshion;
 
 static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320);
 static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);
@@ -52,32 +55,48 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0f / 60);
 
-    // Set the design resolution
-    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::NO_BORDER);
-    auto frameSize = glview->getFrameSize();
-    // if the frame's height is larger than the height of medium size.
-    if (frameSize.height > mediumResolutionSize.height)
-    {        
-        director->setContentScaleFactor(MIN(largeResolutionSize.height/designResolutionSize.height, largeResolutionSize.width/designResolutionSize.width));
+    
+    auto screenSize = glview->getFrameSize();
+    auto designSize = Size(2048, 1536);
+    
+    glview->setDesignResolutionSize(designSize.width, designSize.height, ResolutionPolicy::EXACT_FIT);
+    
+    std::vector<std::string> searchPaths;
+    
+    if (screenSize.height > 768) {
+        
+        searchPaths.push_back("ipadhd");
+        director->setContentScaleFactor(1536/designSize.height);
+        
+    } else if (screenSize.height > 320) {
+        
+        searchPaths.push_back("ipad");
+        director->setContentScaleFactor(768/designSize.height);
+        
+    } else {
+        
+        searchPaths.push_back("iphone");
+        director->setContentScaleFactor(380/designSize.height);
     }
-    // if the frame's height is larger than the height of small size.
-    else if (frameSize.height > smallResolutionSize.height)
-    {        
-        director->setContentScaleFactor(MIN(mediumResolutionSize.height/designResolutionSize.height, mediumResolutionSize.width/designResolutionSize.width));
-    }
-    // if the frame's height is smaller than the height of medium size.
-    else
-    {        
-        director->setContentScaleFactor(MIN(smallResolutionSize.height/designResolutionSize.height, smallResolutionSize.width/designResolutionSize.width));
-    }
+    
+    auto fileUtils = FileUtils::getInstance();
+    fileUtils->setSearchPaths(searchPaths);
 
     register_all_packages();
-
+    
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
+    auto scene = GameLayer::scene();
 
     // run
     director->runWithScene(scene);
+    
+    //setup CocosDenshion
+    auto audioEngine = SimpleAudioEngine::getInstance();
+    audioEngine->preloadBackgroundMusic(fileUtils->fullPathForFilename("background.mp3").c_str());
+    
+    //lower playback volume for effects
+    audioEngine->setBackgroundMusicVolume(0.4f);
+    audioEngine->setEffectsVolume(0.4f);
 
     return true;
 }
