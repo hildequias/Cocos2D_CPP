@@ -36,7 +36,7 @@ enum {
 class GameLayer : public Layer {
     
 private:
-    Vector<Sprite*> _meteorPool;
+    Vector<Sprite*>_meteorPool;
     int _meteorPoolIndex;
     
     Vector<Sprite*> _healthPool;
