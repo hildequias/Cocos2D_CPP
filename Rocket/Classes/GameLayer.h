@@ -62,7 +62,7 @@ class GameLayer : public Layer {
     
     bool _drawing;
     bool _running;
-
+    
     std::vector<Point> _grid;
     int _gridIndex;
     
@@ -77,9 +77,9 @@ class GameLayer : public Layer {
     void createGameScreen(void);
     void createParticles(void);
     void createStarGrid(void);
-
-	int _score;
-	float _timeBetweenPickups;
+    
+    int _score;
+    float _timeBetweenPickups;
     
 public:
     
@@ -91,14 +91,14 @@ public:
     static Scene* scene();
     
     void update (float dt);
-	
+    
     virtual bool onTouchBegan(Touch * touch, Event* event);
-	virtual void onTouchMoved(Touch * touch, Event* event);
-	virtual void onTouchEnded(Touch * touch, Event* event);
+    virtual void onTouchMoved(Touch * touch, Event* event);
+    virtual void onTouchEnded(Touch * touch, Event* event);
     
     CREATE_FUNC(GameLayer);
-	
-
+    
+    
 };
 
 #endif // __GAMELAYER_H__

@@ -1,10 +1,3 @@
-/*
- 
- Background music:
- 8bit Dungeon Level by Kevin MacLeod (incompetech.com)
- 
- */
-
 #include "GameLayer.h"
 #include "SimpleAudioEngine.h"
 #include "Rocket.h"
@@ -29,7 +22,7 @@ Scene* GameLayer::scene()
     auto layer = GameLayer::create();
     
     scene->addChild(layer);
-
+    
     return scene;
 }
 
@@ -43,8 +36,8 @@ bool GameLayer::init()
         return false;
     }
     
-	//init game values
-	_screenSize = Director::getInstance()->getWinSize();
+    //init game values
+    _screenSize = Director::getInstance()->getWinSize();
     _drawing = false;
     _minLineLength = _screenSize.width * 0.07f;
     _state = kGameIntro;
@@ -80,7 +73,7 @@ void GameLayer::update (float dt) {
     
     //track collision with sides
     if (_rocket->collidedWithSides()) {
-        _lineContainer->setLineType ( LINE_NONE );
+        // _lineContainer->setLineType ( LINE_NONE );
     }
     
     _rocket->update(dt);
@@ -165,21 +158,25 @@ void GameLayer::update (float dt) {
     if (_lineContainer->getEnergy() == 0) {
         if (_rocket->isVisible()) killPlayer();
     }
+    
 }
 
 bool GameLayer::onTouchBegan(Touch *touch, Event *event){
-	
+    
     if (!_running) return true;
     
     Point tap = touch->getLocation();
+    
+    //track if tapping on ship
     float dx = _rocket->getPositionX() - tap.x;
     float dy = _rocket->getPositionY() - tap.y;
     
-    if (dx * dx + dy * dy <= pow(_rocket->getRadius(), 2)) {
-        _lineContainer->setLineType(LINE_NONE);
-        _rocket->setRotationOrientation(ROTATE_NONE);
+    if (dx * dx + dy * dy <= pow(_rocket->getRadius(), 2) ) {
+        _lineContainer->setLineType ( LINE_NONE );
+        _rocket->setRotationOrientation ( ROTATE_NONE );
         _drawing = true;
     }
+    
     return true;
 }
 
@@ -195,16 +192,14 @@ void GameLayer::onTouchMoved(Touch *touch, Event *event){
         float dy = _rocket->getPositionY() - tap.y;
         
         if (dx * dx + dy * dy > pow (_minLineLength, 2)) {
-            
             _rocket->select(true);
             _lineContainer->setPivot ( tap );
             _lineContainer->setLineType ( LINE_TEMP );
-            
         } else {
-            
             _rocket->select(false);
             _lineContainer->setLineType ( LINE_NONE );
         }
+        
     }
 }
 
@@ -215,7 +210,7 @@ void GameLayer::onTouchEnded(Touch *touch, Event *event){
         _intro->setVisible(false);
         _pauseBtn->setVisible(true);
         _state = kGamePlay;
-        //resetGame();
+        resetGame();
         return;
         
     } else if (_state == kGamePaused) {
@@ -231,17 +226,9 @@ void GameLayer::onTouchEnded(Touch *touch, Event *event){
         _gameOver->setVisible(false);
         _pauseBtn->setVisible(true);
         _state = kGamePlay;
-        //resetGame();
+        resetGame();
         return;
         
-    }else if (_state == kGamePaused) {
-        
-        _pauseBtn->setDisplayFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName ("btn_pause_off.png"));
-        _paused->setVisible(false);
-        _state = kGamePlay;
-        _running = true;
-        
-        return;
     }
     
     if (!_running) return;
@@ -250,19 +237,18 @@ void GameLayer::onTouchEnded(Touch *touch, Event *event){
         
         Point tap = touch->getLocation();
         
-        if (_pauseBtn->getBoundingBox().containsPoint(tap)) {
-            
+        if (_pauseBtn->boundingBox().containsPoint(tap)) {
             _paused->setVisible(true);
             _state = kGamePaused;
             _pauseBtn->setDisplayFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName ("btn_pause_on.png"));
             _running = false;
-            
             return;
         }
         
         //track if tapping on ship
         _drawing = false;
         _rocket->select(false);
+        
         //if we are showing a temp line
         if (_lineContainer->getLineType() == LINE_TEMP) {
             
@@ -292,11 +278,13 @@ void GameLayer::onTouchEnded(Touch *touch, Event *event){
             }
             _lineContainer->setLineType ( LINE_DASHED );
         }
+        
     }
+    
 }
 
 void GameLayer::resetGame () {
-
+    
     _rocket->setPosition(Vec2(_screenSize.width * 0.5f, _screenSize.height * 0.1f));
     _rocket->setOpacity(255);
     _rocket->setVisible(true);
@@ -328,16 +316,19 @@ void GameLayer::resetGame () {
 }
 
 void GameLayer::resetStar() {
-    
-    Point position = _grid[_gridIndex];
-    _gridIndex++;
-    
-    if (_gridIndex == _grid.size()) _gridIndex = 0;
-    
-    //reset star particles
-    _star->setPosition(position);
-    _star->setVisible(true);
-    _star->resetSystem();
+    while (true) {
+        Point position = _grid[_gridIndex];
+        _gridIndex++;
+        if (_gridIndex == _grid.size()) _gridIndex = 0;
+        if (pow(position.x - _rocket->getPositionX(), 2) +
+            pow(position.y - _rocket->getPositionY(), 2) >
+            _rocket->getRadius() * 6) {
+            _star->setPosition(position);
+            _star->setVisible(true);
+            _star->resetSystem();
+            return;
+        }
+    }
 }
 
 void GameLayer::killPlayer() {
@@ -348,16 +339,15 @@ void GameLayer::killPlayer() {
     
     _boom->setPosition(_rocket->getPosition());
     _boom->resetSystem();
-    
     _rocket->setVisible(false);
     _jet->stopSystem();
     _lineContainer->setLineType ( LINE_NONE );
     
     _running = false;
     _state = kGameOver;
-    
     _gameOver->setVisible(true);
     _pauseBtn->setVisible(false);
+    
 }
 
 
@@ -374,54 +364,54 @@ void GameLayer::createGameScreen () {
     
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("sprite_sheet.plist");
     _gameBatchNode = SpriteBatchNode::create("sprite_sheet.png", 100);
-
+    
     this->addChild(_gameBatchNode, kForeground);
     
     _rocket = Rocket::create();
     _rocket->setPosition(Vec2(_screenSize.width * 0.5f, _screenSize.height * 0.1f));
     _gameBatchNode->addChild(_rocket, kForeground, kSpriteRocket);
     
-
+    
     //add planets
     auto planet = GameSprite::createWithFrameName("planet_1.png");
     planet->setPosition(Vec2(_screenSize.width * 0.25f,
-                            _screenSize.height * 0.8f));
+                             _screenSize.height * 0.8f));
     _gameBatchNode->addChild(planet, kBackground, kSpritePlanet);
     _planets.pushBack(planet);
     
     planet = GameSprite::createWithFrameName("planet_2.png");
     planet->setPosition(Vec2(_screenSize.width * 0.8f,
-                            _screenSize.height * 0.45f));
+                             _screenSize.height * 0.45f));
     _gameBatchNode->addChild(planet, kBackground, kSpritePlanet);
     _planets.pushBack(planet);
     
     planet = GameSprite::createWithFrameName("planet_3.png");
     planet->setPosition(Vec2(_screenSize.width * 0.75f,
-                            _screenSize.height * 0.8f));
+                             _screenSize.height * 0.8f));
     _gameBatchNode->addChild(planet, kBackground, kSpritePlanet);
     _planets.pushBack(planet);
     
     planet = GameSprite::createWithFrameName("planet_4.png");
     planet->setPosition(Vec2(_screenSize.width * 0.5f,
-                            _screenSize.height * 0.5f));
+                             _screenSize.height * 0.5f));
     _gameBatchNode->addChild(planet, kBackground, kSpritePlanet);
     _planets.pushBack(planet);
     
     planet = GameSprite::createWithFrameName("planet_5.png");
     planet->setPosition(Vec2(_screenSize.width * 0.18f,
-                            _screenSize.height * 0.45f));
+                             _screenSize.height * 0.45f));
     _gameBatchNode->addChild(planet, kBackground, kSpritePlanet);
     _planets.pushBack(planet);
     
     planet = GameSprite::createWithFrameName("planet_6.png");
     planet->setPosition(Vec2(_screenSize.width * 0.8f,
-                            _screenSize.height * 0.15f));
+                             _screenSize.height * 0.15f));
     _gameBatchNode->addChild(planet, kBackground, kSpritePlanet);
     _planets.pushBack(planet);
     
     planet = GameSprite::createWithFrameName("planet_7.png");
     planet->setPosition(Vec2(_screenSize.width * 0.18f,
-                            _screenSize.height * 0.1f));
+                             _screenSize.height * 0.1f));
     _gameBatchNode->addChild(planet, kBackground, kSpritePlanet);
     _planets.pushBack(planet);
     
@@ -481,6 +471,16 @@ void GameLayer::createParticles() {
     _pickup = ParticleSystemQuad::create("plink.plist");
     _pickup->stopSystem();
     this->addChild(_pickup, kMiddleground);
+    
+    _warp = ParticleSystemQuad::create("warp.plist");
+    _warp->setPosition(_rocket->getPosition());
+    this->addChild(_warp, kBackground);
+    
+    _star = ParticleSystemQuad::create("star.plist");
+    _star->stopSystem();
+    _star->setVisible(false);
+    this->addChild(_star, kBackground, kSpriteStar);
+    
 }
 
 void GameLayer::createStarGrid() {
